@@ -22,6 +22,8 @@
 )]
 #![allow(clippy::bool_comparison)]
 
+extern crate core;
+
 pub mod cli;
 pub(crate) mod components;
 mod config_migration;

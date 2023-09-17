@@ -480,6 +480,8 @@ where
         .serialize(&Arc::new(handshake_message))
         .map_err(ConnectionError::CouldNotEncodeOurHandshake)?;
 
+    info!("DATA SENT TO NODE: {:?}", &serialized_handshake_message);
+
     // To ensure we are not dead-locking, we split the framed transport here and send the handshake
     // in a background task before awaiting one ourselves. This ensures we can make progress
     // regardless of the size of the outgoing handshake.
